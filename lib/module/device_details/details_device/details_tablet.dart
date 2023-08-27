@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:test_device_details/module/device_details/device_details_logic.dart';
+import 'package:test_device_details/routes/app_routes.dart';
 
 class DeviceDetailsTablet extends GetView<DeviceDetailsLogic> {
   final SizingInformation? sizingInformation;
@@ -36,14 +37,21 @@ class DeviceDetailsTablet extends GetView<DeviceDetailsLogic> {
               controller.showDetailsViewCard(name: "Platform", value: controller.devicePlatForm.value),
               controller.showDetailsViewCard(name: "Model", value: controller.androidInfo?.model),
               controller.showDetailsViewCard(name: "Security", value: controller.androidInfo?.version.securityPatch),
-              controller.showDetailsViewCard(name: "SerialNumber", value: controller.androidInfo?.serialNumber),
+              //controller.showDetailsViewCard(name: "SerialNumber", value: controller.androidInfo?.serialNumber),
               controller.showDetailsViewCard(name: "BuildNumber", value: controller.androidInfo?.id),
               controller.showDetailsViewCard(name: "Brand", value: controller.androidInfo?.brand),
               controller.showDetailsViewCard(name: "Manufacture", value: controller.androidInfo?.manufacturer),
               controller.showDetailsViewCard(name: "Base OS", value: controller.androidInfo?.version.baseOS ?? "Unknown"),
               controller.showDetailsViewCard(name: "Release", value: controller.androidInfo?.version.release),
               controller.showDetailsViewCard(name: "Code Name", value: controller.androidInfo?.version.codename),
-              controller.showDetailsViewCard(name: "Device UUID", value: controller.androidInfo?.version.codename),
+              controller.showDetailsViewCard(name: "Device serial number", value: controller.deviceSerialNumber.value),
+              controller.showDetailsViewCard(name: "IP ADDRESS", value: controller.ipAddressString),
+              //controller.showDetailsViewCard(name: "Android ID", value: controller.androidInfo!.androidId),
+              FloatingActionButton(
+                  child: const Text("Encrypt Data"),
+                  onPressed: (){
+                    Get.toNamed(Routes.encryptDevice);
+                  })
             ],
           );
         }),

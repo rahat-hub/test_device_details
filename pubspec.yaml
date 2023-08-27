@@ -18,10 +18,12 @@ dependencies:
   get_ip_address: ^0.0.6
   unique_identifier: ^0.3.0
   uuid: ^3.0.7
+  encryptor: ^0.0.1
   #platform_device_id: ^1.0.1
-  android_id: ^0.3.4
-  device_information: ^0.0.4
+  #android_id: ^0.3.4
+  #device_information: ^0.0.4
   device_info_plus: ^9.0.3
+  #platform_device_id: ^1.0.1
 
 
 dev_dependencies:
@@ -29,6 +31,9 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^2.0.2
+
+dependency_overrides:
+  #device_info_plus: ^3.2.3
 
 
 flutter:

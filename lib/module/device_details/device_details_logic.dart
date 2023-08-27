@@ -4,7 +4,9 @@ import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
 import 'package:get_ip_address/get_ip_address.dart';
+
 import 'package:unique_identifier/unique_identifier.dart';
+import 'package:uuid/uuid.dart';
 
 
 class DeviceDetailsLogic extends GetxController {
@@ -12,6 +14,8 @@ class DeviceDetailsLogic extends GetxController {
   var devicePlatForm = "".obs;
 
   var deviceSerialNumber = "".obs;
+
+  String? deviceId;
 
   dynamic ipAddressString;
 
@@ -36,6 +40,10 @@ class DeviceDetailsLogic extends GetxController {
   void onReady() {
     // TODO: implement onReady
     super.onReady();
+    print("********************************");
+    //print(androidInfo!.androidId);
+    print("********************************");
+
   }
 
   @override
@@ -50,6 +58,11 @@ class DeviceDetailsLogic extends GetxController {
     dynamic data = await ipAddress.getIpAddress();
 
     ipAddressString = data.toString();
+
+     deviceId = const Uuid().v1();
+    print("%%%%%%%%%%%%%%%%%%%%%");
+    print(deviceId);
+    print("%%%%%%%%%%%%%%%%%%%%%");
 
     try{
       deviceSerialNumber.value = (await UniqueIdentifier.serial)!;

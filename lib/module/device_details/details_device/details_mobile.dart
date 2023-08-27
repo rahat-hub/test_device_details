@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:test_device_details/module/device_details/device_details_logic.dart';
+import 'package:test_device_details/routes/app_routes.dart';
 
 class DeviceDetailsMobilePortrait extends GetView<DeviceDetailsLogic> {
   final SizingInformation? sizingInformation;
@@ -22,10 +23,11 @@ class DeviceDetailsMobilePortrait extends GetView<DeviceDetailsLogic> {
           ),
         ),
         body: Obx(() {
-          return Column(
+          return ListView(
             children: [
               controller.showDetailsViewCard(name: "Platform", value: controller.devicePlatForm.value),
               controller.showDetailsViewCard(name: "Model", value: controller.androidInfo?.model),
+              controller.showDetailsViewCard(name: "Device Name", value: controller.androidInfo?.device),
               controller.showDetailsViewCard(name: "Security", value: controller.androidInfo?.version.securityPatch),
               controller.showDetailsViewCard(name: "SerialNumber", value: controller.androidInfo?.serialNumber),
               controller.showDetailsViewCard(name: "BuildNumber", value: controller.androidInfo?.id),
@@ -36,6 +38,13 @@ class DeviceDetailsMobilePortrait extends GetView<DeviceDetailsLogic> {
               controller.showDetailsViewCard(name: "Code Name", value: controller.androidInfo?.version.codename),
               controller.showDetailsViewCard(name: "Device serial number", value: controller.deviceSerialNumber.value),
               controller.showDetailsViewCard(name: "IP ADDRESS", value: controller.ipAddressString),
+              controller.showDetailsViewCard(name: "Device ID", value: controller.deviceId),
+              //controller.showDetailsViewCard(name: "Android ID", value: controller.androidInfo!.androidId),
+              FloatingActionButton(
+                  child: const Text("Encrypt Data"),
+                  onPressed: (){
+                    Get.toNamed(Routes.encryptDevice);
+              })
             ],
           );
         }),
@@ -69,7 +78,7 @@ class DeviceDetailsMobileLandscape extends GetView<DeviceDetailsLogic> {
               controller.showDetailsViewCard(name: "Platform", value: controller.devicePlatForm.value),
               controller.showDetailsViewCard(name: "Model", value: controller.androidInfo?.model),
               controller.showDetailsViewCard(name: "Security", value: controller.androidInfo?.version.securityPatch),
-              controller.showDetailsViewCard(name: "Serial Number", value: controller.androidInfo?.serialNumber),
+              controller.showDetailsViewCard(name: "SerialNumber", value: controller.androidInfo?.serialNumber),
               controller.showDetailsViewCard(name: "BuildNumber", value: controller.androidInfo?.id),
               controller.showDetailsViewCard(name: "Brand", value: controller.androidInfo?.brand),
               controller.showDetailsViewCard(name: "Manufacture", value: controller.androidInfo?.manufacturer),
@@ -77,6 +86,13 @@ class DeviceDetailsMobileLandscape extends GetView<DeviceDetailsLogic> {
               controller.showDetailsViewCard(name: "Release", value: controller.androidInfo?.version.release),
               controller.showDetailsViewCard(name: "Code Name", value: controller.androidInfo?.version.codename),
               controller.showDetailsViewCard(name: "Device serial number", value: controller.deviceSerialNumber.value),
+              controller.showDetailsViewCard(name: "IP ADDRESS", value: controller.ipAddressString),
+              //controller.showDetailsViewCard(name: "Android ID", value: controller.androidInfo!.androidId),
+              FloatingActionButton(
+                  child: const Text("Encrypt Data"),
+                  onPressed: (){
+                    Get.toNamed(Routes.encryptDevice);
+                  })
             ],
           );
         }),
