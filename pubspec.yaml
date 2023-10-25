@@ -12,25 +12,29 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.5
-  get: ^4.6.5
+  cupertino_icons: ^1.0.6
+  get: ^4.6.6
   responsive_builder: ^0.7.0
   get_ip_address: ^0.0.6
   unique_identifier: ^0.3.0
-  uuid: ^3.0.7
+  uuid: ^4.0.0
   encryptor: ^0.0.1
+  custom_pop_up_menu: ^1.2.4
+  flutter_simple_treeview: ^3.0.2
   #platform_device_id: ^1.0.1
   #android_id: ^0.3.4
   #device_information: ^0.0.4
   device_info_plus: ^9.0.3
   #platform_device_id: ^1.0.1
+  flutter_tree: ^2.0.3
+  geolocator: ^10.1.0
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.2
+  flutter_lints: ^2.0.3
 
 dependency_overrides:
   #device_info_plus: ^3.2.3
