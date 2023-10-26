@@ -11,7 +11,41 @@ class GPSLocationTrackingMobilePortrait extends GetView<GpsLocationTrackingLogic
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+
+    Get.find<GpsLocationTrackingLogic>();
+
+    return WillPopScope(
+      onWillPop: () async {
+        Get.back();
+        return true;
+      },
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Theme.of(context).colorScheme.background,
+          appBar: AppBar(
+            title: const Text("GPS Location"),
+          ),
+          body: SafeArea(
+            child: ListView(
+              children: [
+                ElevatedButton(
+                    onPressed: () async {
+                      await controller.determinePosition();
+                    },
+                    child: const Text("Get GPS Location")
+                ),
+                const SizedBox(height: 20.0),
+                if(controller.position?.latitude != null)
+                  Text("Latitude : ${controller.position?.latitude ?? ""}"),
+                const SizedBox(height: 20.0),
+                if(controller.position?.longitude != null)
+                Text("Longitude : ${controller.position?.longitude ?? ""}"),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 
