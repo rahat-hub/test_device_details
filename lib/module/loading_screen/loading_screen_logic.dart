@@ -10,7 +10,7 @@ class LoadingScreenLogic extends GetxController {
     // TODO: implement onInit
     super.onInit();
     await Future.delayed(const Duration(seconds: 2));
-    await Get.offNamed(Routes.flightGPSTracking);
+    await Get.offNamed(Routes.tableRowColumnTest);
 
   }
 

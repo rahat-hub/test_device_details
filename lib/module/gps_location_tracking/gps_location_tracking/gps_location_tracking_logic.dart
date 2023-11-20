@@ -8,7 +8,7 @@ class GpsLocationTrackingLogic extends GetxController {
 
   @override
   void onInit() async {
-    // TODO: implement onInit
+    //TODO: implement onInit
     super.onInit();
     //await Geolocator.requestPermission();
     //bool serviceEnabled;

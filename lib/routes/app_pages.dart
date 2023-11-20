@@ -9,6 +9,8 @@ import 'package:test_device_details/module/gps_location_tracking/gps_location_tr
 import 'package:test_device_details/module/gps_location_tracking/gps_location_tracking/gps_location_tracking_view.dart';
 import 'package:test_device_details/module/loading_screen/loading_screen_binding.dart';
 import 'package:test_device_details/module/loading_screen/loading_screen_view.dart';
+import 'package:test_device_details/module/table_row_column_test/table_row_column_test_binding.dart';
+import 'package:test_device_details/module/table_row_column_test/table_row_column_test_view.dart';
 import 'package:test_device_details/module/veriable_chack_for_flight_ops/flight_ops/flight_ops_binding.dart';
 import 'package:test_device_details/module/veriable_chack_for_flight_ops/flight_ops/flight_ops_view.dart';
 
@@ -54,6 +56,14 @@ class AppPages {
         page: () => const GpsLocationTrackingPage(),
         bindings: [
           GpsLocationTrackingBinding()
+        ]
+    ),
+
+    GetPage(
+        name: Routes.tableRowColumnTest,
+        page: () => const TableRowColumnTestPage(),
+        bindings: [
+          TableRowColumnTestBinding()
         ]
     ),
 
