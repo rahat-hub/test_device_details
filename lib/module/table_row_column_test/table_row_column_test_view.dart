@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:responsive_builder/responsive_builder.dart';
+import 'package:test_device_details/module/table_row_column_test/table_row_column_test/table_row_mobile.dart';
 
 import 'table_row_column_test_logic.dart';
 
@@ -12,12 +14,22 @@ class TableRowColumnTestPage extends StatelessWidget {
 
     Get.find<TableRowColumnTestLogic>();
 
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Fixed Row and Column Table')),
-        body: fixedRowColumnTable(),
+    return ResponsiveBuilder(
+      builder: (context, sizingInformation) => ScreenTypeLayout.builder(
+        mobile: (context) => OrientationLayoutBuilder(
+          portrait: (context) => TableRowMobilePortrait(sizingInformation: sizingInformation),
+          landscape: (context) => TableRowMobilePortrait(sizingInformation: sizingInformation),
+        ),
+        tablet: (context) => TableRowMobilePortrait(sizingInformation: sizingInformation),
       ),
     );
+
+    // return MaterialApp(
+    //   home: Scaffold(
+    //     appBar: AppBar(title: const Text('Fixed Row and Column Table')),
+    //     body: fixedRowColumnTable(),
+    //   ),
+    // );
   }
 
 

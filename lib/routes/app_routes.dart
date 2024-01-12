@@ -6,4 +6,5 @@ abstract class Routes {
   static const flightOps = '/flight_ops';
   static const flightGPSTracking = '/flight_gps_tracking';
   static const tableRowColumnTest = '/table_row_column_test';
+  static const newTableDataView = '/new_table_data_view';
 }
