@@ -166,7 +166,6 @@ class TableRowColumnTestLogic extends GetxController {
   void onInit() {
     super.onInit();
     items.addAll(tableData);
-
   }
 
   @override
